@@ -1,0 +1,26 @@
+{
+  "name": "sony-mds-e11-remote",
+  "version": "1.0.0",
+  "description": "a remote for sony minidisc player",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "minidisc",
+    "sony",
+    "remote",
+    "e11",
+    "mds"
+  ],
+  "author": "Rowan Hamilton",
+  "license": "ISC",
+  "dependencies": {
+    "@serialport/bindings-cpp": "^10.7.0",
+    "debug": "^4.3.4",
+    "serialport": "^10.4.0"
+  },
+  "volta": {
+    "node": "17.7.2"
+  }
+}
