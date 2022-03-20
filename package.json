@@ -4,6 +4,7 @@
   "description": "a remote for sony minidisc player",
   "main": "index.js",
   "scripts": {
+    "dev": "DEBUG=MDS:* node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
