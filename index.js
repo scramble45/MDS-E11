@@ -3,6 +3,26 @@ const { SerialPort } = require('serialport')
 const { InterByteTimeoutParser } = require('@serialport/parser-inter-byte-timeout')
 const debug = require('debug')('MDS:')
 
+let help = ""
+help += "  Sony MDS-E11 - CLI Help\n"
+help += "    --remote <on> <off>     (Tells the unit to go into remote mode and must be done first)\n"
+help += "    --power <on> <off>      (Power/Standby)\n"
+help += "    --play                  (Play)\n"
+help += "    --pause                 (Pause current track)\n"
+help += "    --stop                  (Stop current track)\n"
+help += "    --ff_rew_off            (Cancel state of FF or REW)\n"
+help += "    --rew\n"
+help += "    --ff\n"
+help += "    --prev / --previous     (Previous Track)\n"
+help += "    --next                  (Next Track)\n"
+help += "    --rec                   (Toggle Record mode)\n"
+help += "    --eject                 (Eject MiniDisc)\n"
+help += "    --eraseAll              (Erase MiniDisc)\n"
+help += "    --model                 (Report connected model)\n"
+help += "    --discName              (Report MiniDisc album name)\n"
+help += "    --trackName <0> <12>    (Report Track name by number)\n"
+help += "    --allTrackNames         (Report MiniDisc album name and all Track names)\n"
+
 let [cmd, state, track] = process.argv.slice(2)
 if (cmd) cmd = cmd.replace(/-/gmi, '')
 if (/on/i.test(state)) state = true
@@ -190,8 +210,12 @@ switch (cmd) {
       port.close()
     })
     break
+  case 'help':
+    console.log(help)
+    break
   default:
-    debug('--help\n')
+    console.log(help)
     port.close()
     process.exit(1)
 }
+
